@@ -28,4 +28,5 @@ public class Role extends AbsEntity{
     public void setRoleCode(String roleCode) {
         this.roleCode = roleCode;
     }
+
 }

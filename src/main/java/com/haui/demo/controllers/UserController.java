@@ -1,6 +1,7 @@
 package com.haui.demo.controllers;
 import com.haui.demo.models.bos.SystemResponse;
 import com.haui.demo.models.requests.Login;
+import com.haui.demo.models.requests.SignupRq;
 import com.haui.demo.services.IUserService;
 import io.swagger.annotations.Api;
 import org.springframework.http.ResponseEntity;
@@ -24,4 +25,8 @@ public class UserController {
         return service.login(request,login);
     }
 
+    @PostMapping("/users/signup")
+    public ResponseEntity<SystemResponse<Object>> signup(@RequestBody SignupRq signupRq) {
+        return service.signup(signupRq);
+    }
 }

@@ -32,6 +32,7 @@ public class AuthInterceptor implements HandlerInterceptor {
     private final FirebaseService firebaseService;
     private final API[] skipAuthAPIs = new API[]{
             API.with("^/users/login$"),
+            API.with("^/users/signup$"),
             API.with("^/users/otps$"),
             API.with("^/users/otps/verifier$"),
             API.with("^/images/(.*)$"),
@@ -92,15 +93,15 @@ public class AuthInterceptor implements HandlerInterceptor {
         request.setAttribute(Global.USER_ATTR, decodedJWT);
         UserJwt user = UserJwt.from(decodedJWT);
         jwt.findNGenerateToken(user);
-            boolean author = authorization.verifyRole(decodedJWT, request);
-        if (!author) {
-            SystemResponse<?> errorResponse = new SystemResponse<>(HttpStatus.UNAUTHORIZED.value(), "UNAUTHORIZED!");
-            response.setStatus(StatusResponse.UNAUTHORIZED);
-            response.setContentType("application/json");
-            response.getWriter().println(errorResponse.toString());
-            logger.error(StringResponse.UNAUTHORIZED);
-            return false;
-        }
+//            boolean author = authorization.verifyRole(decodedJWT, request);
+//        if (!author) {
+//            SystemResponse<?> errorResponse = new SystemResponse<>(HttpStatus.UNAUTHORIZED.value(), "UNAUTHORIZED!");
+//            response.setStatus(StatusResponse.UNAUTHORIZED);
+//            response.setContentType("application/json");
+//            response.getWriter().println(errorResponse.toString());
+//            logger.error(StringResponse.UNAUTHORIZED);
+//            return false;
+//        }
         return true;
     }
 
