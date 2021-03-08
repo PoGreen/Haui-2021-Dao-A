@@ -4,13 +4,13 @@ import com.haui.demo.models.requests.Login;
 import com.haui.demo.services.IUserService;
 import io.swagger.annotations.Api;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
 @Api(tags = "USER")
-@RestController
-@RequestMapping("/users")
+@Controller(value = "users")
 public class UserController {
 
     private final IUserService service;
@@ -19,7 +19,7 @@ public class UserController {
         this.service = service;
     }
 
-    @PostMapping("/login")
+    @PostMapping("/users/login")
     public ResponseEntity<SystemResponse<Object>> login(HttpServletRequest request, @RequestBody Login login) {
         return service.login(request,login);
     }
