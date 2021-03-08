@@ -4,7 +4,7 @@ import com.haui.demo.annotations.PhoneNumber;
 
 import javax.validation.constraints.NotBlank;
 
-public class SignupRq {
+public class AdminRq {
     @NotBlank
     private String userName;
     @NotBlank
@@ -19,6 +19,8 @@ public class SignupRq {
     private String address;
     @NotBlank
     private Integer ward;
+
+    private String role;
 
     public String getUserName() {
         return userName;
@@ -76,4 +78,11 @@ public class SignupRq {
         this.ward = ward;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 }

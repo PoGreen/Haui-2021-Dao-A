@@ -26,4 +26,6 @@ public interface StringResponse {
 
     //location
     String WARD_IS_FAKE = "ward is fake";
+
+    String ROLE_IS_FAKE = "role is fake";
 }
